@@ -41,7 +41,7 @@ for category in category_objects:
 
 for link in url_1:
     #On recherche les titres des différents livres d'une page du site booktoscrap.com
-    table = html_soup.find_all("table", {"class":"table table-striped"})
+    table = html_soup.find("table", {"class":"table table-striped"})
     print(table)
     results = table.find("td")
     title = html_soup.find("h1").text.strip()
