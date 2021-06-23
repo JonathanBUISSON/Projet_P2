@@ -45,15 +45,22 @@ for category in category_objects:
     product_page=link
     print(product_page)
 
+
 for url in book_link:
    #On recherche les titres des différents livres d'une page du site booktoscrap.com
    #table = html_soup.find("li", "class = col-xs-6 col-sm-4 col-md-3 col-lg-3")
-   rex = html_soup.find("table", {"class":"table table-striped"})
-   print(rex)
+   rex = html_soup.find_all("table", {"class":"table table-striped"})
+   
+
+for rex in book_link:
+   #print(rex)
    #results = html_soup.find("a")["href"]
-   results = rex.find("td")
+   results = str(rex.find("td"))
    print(results)
+   print(type(results))
+   #print(results)
    title = html_soup.find("h1").text.strip()
+   print(title)
 
 #on crée un tableau "don" de données qui regroupent les différentes catégories de livres
    don=[]
@@ -70,11 +77,13 @@ for url in book_link:
    else:
      product_description = "No description available"
      prod.append(product_description)
-    
-   Product_page = link
+
+   
+   product_page = link
+
    UPC = results[0].text.strip() #La méthode .strip() enlève les espaces en début et en fin de mot.
    Product_type = results[1].text.strip()
-   Price_excluding_tax = results[2].text.strip
+   Price_excluding_tax = results[2].text.strip()
    Price_including_tax = results[3].text.strip()
    Tax = results[4].text.strip()
    Availability = results[5].text.strip()
