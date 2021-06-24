@@ -135,12 +135,10 @@ for url in book_link:
         # print(product_description)
         #print('Number of results', len(results))
 
-         
-
-headers = [product_page ,UPC, title , Price_including_tax, Price_excluding_tax , Availability , Numbers_of_review, product_description , category , review_rating ,  image_src]
-
-with open('fichier.csv', mode='w', encoding= 'UTF-8', newline='') as f:
-       writer = csv.writer(f, quoting=csv.QUOTE_NONNUMERIC)
+headers = [ "product_page" ,"UPC", "title" , "Price_including_tax", "Price_excluding_tax" , "Availability" , "Numbers_of_review", "product_description" , "category" , "review_rating" ,  "image_src" ]
+    
+with open('fichier.csv', mode='w', encoding= 'UTF-8', newline='') as file:
+       writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
        writer.writerow(headers)
        writer.writerow(product_page)
        writer.writerow(cat)
